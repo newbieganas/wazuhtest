@@ -1,0 +1,25 @@
+<decoder name="nova-api">
+    <prematch type="pcre2">^nova</prematch>
+    <regex type="pcre2">^(nova-api\.log\.\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2})</regex>
+    <order>header</order>
+</decoder>
+
+<decoder name="nova-compute">
+    <prematch type="pcre2">^nova</prematch>
+    <regex type="pcre2">^(nova-compute\.log\.\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2})</regex>
+    <order>header</order>
+</decoder>
+
+<!-- Anaknya -->
+
+<decoder name="level-api">
+    <parent>nova-api</parent>
+    <regex type="pcre2">(INFO|DEBUG|ERROR|WARNING|CRITICAL)</regex>
+    <order>level</order>
+</decoder>
+
+<decoder name="level-compute">
+    <parent>nova-compute</parent>
+    <regex type="pcre2">(INFO|DEBUG|ERROR|WARNING|CRITICAL)</regex>
+    <order>level</order>
+</decoder>
